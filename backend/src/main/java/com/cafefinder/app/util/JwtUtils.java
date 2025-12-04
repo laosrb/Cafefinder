@@ -14,6 +14,8 @@ import java.util.Date;
 @Component
 public class JwtUtils {
     
+    // JWT secret should be provided via environment variable in production
+    // Never hardcode secrets in source code
     @Value("${cafefinder.app.jwtSecret:cafefinderSecretKey}")
     private String jwtSecret;
 

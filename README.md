@@ -14,17 +14,36 @@ Java 17 + Spring Boot 3, MongoDB, React + Vite.
 - Real-time busy hours tracking
 - Advanced search with filters
 - Map integration (Google Maps)
-- Professional, responsive UI design
+- responsive UI design
 
 
 cd frontend
 npm install
 
-To enable map functionality:
-1. Get a Google Maps API key from [Google Cloud Console](https://developers.google.com/maps/documentation/javascript/get-api-key)
-2. Create `frontend/.env` file:
-3. Just type in your api key down below.
-VITE_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
+## Environment Setup
+
+### Frontend Environment Variables
+
+Create `frontend/.env` file:
+
+```env
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+VITE_API_URL=  # Leave empty for local development (uses proxy)
+```
+
+1. Get a Google Maps API key from [Google Cloud Console](https://console.cloud.google.com/)
+2. Enable: Maps JavaScript API, Places API
+3. Create `frontend/.env` file with your API key
+
+### Backend Environment Variables
+
+The backend uses `application.properties` for configuration. For production, override with environment variables:
+
+- `MONGODB_URI`: MongoDB connection string
+- `CORS_ALLOWED_ORIGINS`: Comma-separated list of allowed origins
+- `cafefinder.app.jwtSecret`: JWT secret key
+
+**Note:** Never commit `.env` files to Git. They are protected by `.gitignore`.
 
 
  Terminal 1 - Database

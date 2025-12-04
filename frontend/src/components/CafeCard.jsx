@@ -4,33 +4,12 @@ import {
   StarIcon, 
   MapPinIcon, 
   WifiIcon,
-  CurrencyDollarIcon,
-  ClockIcon
+  CurrencyDollarIcon
 } from '@heroicons/react/24/outline'
 import useGooglePhoto from '../hooks/useGooglePhoto'
 
 const CafeCard = ({ cafe }) => {
   const { photoUrl, loading: photoLoading, error: photoError } = useGooglePhoto(cafe)
-  
-  const getBusyStatusColor = (status) => {
-    switch (status) {
-      case 'quiet': return 'badge-green'
-      case 'moderate': return 'badge-yellow'
-      case 'busy': return 'badge-red'
-      case 'very_busy': return 'badge-red'
-      default: return 'badge-gray'
-    }
-  }
-
-  const getBusyStatusText = (status) => {
-    switch (status) {
-      case 'quiet': return 'Quiet'
-      case 'moderate': return 'Moderate'
-      case 'busy': return 'Busy'
-      case 'very_busy': return 'Very Busy'
-      default: return 'Unknown'
-    }
-  }
 
   return (
     <Link to={`/cafe/${cafe.id}`} className="cafe-card">
@@ -122,29 +101,15 @@ const CafeCard = ({ cafe }) => {
           )}
         </div>
 
-        {/* Current Status */}
-        <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            {cafe.currentStatus && cafe.currentStatus !== 'unknown' && (
-              <span className={`badge ${getBusyStatusColor(cafe.currentStatus)}`}>
-                <ClockIcon className="h-3 w-3 mr-1" />
-                {getBusyStatusText(cafe.currentStatus)}
-              </span>
-            )}
-            {cafe.currentWaitTime && (
-              <span className="text-sm text-gray-600">
-                ~{cafe.currentWaitTime}min wait
-              </span>
-            )}
-          </div>
-          
-          {cafe.tags && cafe.tags.length > 0 && (
+        {/* Tags */}
+        {cafe.tags && cafe.tags.length > 0 && (
+          <div className="flex items-center">
             <span className="text-xs text-gray-500">
               {cafe.tags.slice(0, 2).join(', ')}
               {cafe.tags.length > 2 && '...'}
             </span>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </Link>
   )

@@ -4,7 +4,6 @@ import axios from '../utils/api'
 import CafeMap from '../components/CafeMap'
 import ReviewForm from '../components/ReviewForm'
 import ReviewList from '../components/ReviewList'
-import BusyHoursChart from '../components/BusyHoursChart'
 import ClaimCafeModal from '../components/ClaimCafeModal'
 import useGooglePhoto from '../hooks/useGooglePhoto'
 import { useAuth } from '../contexts/AuthContext'
@@ -12,7 +11,6 @@ import {
   StarIcon, 
   MapPinIcon, 
   PhoneIcon, 
-  ClockIcon,
   WifiIcon,
   CurrencyDollarIcon,
   UserGroupIcon
@@ -24,7 +22,6 @@ const CafeDetails = () => {
   const { user } = useAuth()
   const [cafe, setCafe] = useState(null)
   const [reviews, setReviews] = useState([])
-  const [busyHours, setBusyHours] = useState([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('overview')
   const [showClaimModal, setShowClaimModal] = useState(false)
@@ -51,21 +48,13 @@ const CafeDetails = () => {
         // Set cafe data
         setCafe(foundCafe)
         
-        // Try to get reviews and busy hours, but don't fail if they error
+        // Try to get reviews, but don't fail if they error
         try {
           const reviewsRes = await axios.get(`/api/reviews/public/cafe/${id}`)
           setReviews(reviewsRes.data || [])
         } catch (reviewError) {
           console.log('Reviews not available:', reviewError.message)
           setReviews([])
-        }
-
-        try {
-          const busyRes = await axios.get(`/api/busy/public/cafe/${id}?hours=168`)
-          setBusyHours(busyRes.data || [])
-        } catch (busyError) {
-          console.log('Busy hours not available:', busyError.message)
-          setBusyHours([])
         }
         
         // Check if cafe can be claimed
@@ -74,6 +63,8 @@ const CafeDetails = () => {
           setCanClaim(claimRes.data.canClaim)
         } catch (error) {
           console.log('Could not check claim status')
+          // Default to true if check fails and cafe is not claimed
+          setCanClaim(true)
         }
       } catch (error) {
         console.error('Error fetching cafe data:', error)
@@ -164,7 +155,7 @@ const CafeDetails = () => {
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2">
           <h1 className="text-3xl font-bold text-gray-900">{cafe.name}</h1>
-          {user && canClaim && (
+          {canClaim && (
             <button
               onClick={() => setShowClaimModal(true)}
               className="btn-secondary text-sm px-4 py-2"
@@ -234,7 +225,6 @@ const CafeDetails = () => {
           {[
             { id: 'overview', name: 'Overview' },
             { id: 'reviews', name: 'Reviews' },
-            { id: 'busy-hours', name: 'Busy Hours' },
             { id: 'menu', name: 'Menu' }
           ].map((tab) => (
             <button
@@ -324,10 +314,6 @@ const CafeDetails = () => {
             </div>
           )}
 
-          {activeTab === 'busy-hours' && (
-            <BusyHoursChart cafeId={id} busyHours={busyHours} />
-          )}
-
           {activeTab === 'menu' && (
             <div>
               {cafe.menuItems && cafe.menuItems.length > 0 ? (
@@ -355,29 +341,6 @@ const CafeDetails = () => {
 
         {/* Sidebar */}
         <div className="space-y-6">
-          {/* Current Status */}
-          <div className="card">
-            <h3 className="text-lg font-semibold mb-4">Current Status</h3>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span>Status:</span>
-                <span className={`badge ${
-                  cafe.currentStatus === 'quiet' ? 'badge-green' :
-                  cafe.currentStatus === 'moderate' ? 'badge-yellow' :
-                  cafe.currentStatus === 'busy' ? 'badge-red' : 'badge-gray'
-                }`}>
-                  {cafe.currentStatus || 'Unknown'}
-                </span>
-              </div>
-              {cafe.currentWaitTime && (
-                <div className="flex justify-between">
-                  <span>Wait Time:</span>
-                  <span>~{cafe.currentWaitTime} min</span>
-                </div>
-              )}
-            </div>
-          </div>
-
           {/* Hours */}
           {cafe.hours && (
             <div className="card">
