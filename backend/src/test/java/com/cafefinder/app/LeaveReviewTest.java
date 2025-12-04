@@ -1,15 +1,22 @@
 package com.cafefinder.app;
 
-import com.cafefinder.app.model.Review;
-import com.cafefinder.app.repo.ReviewRepo;
-import com.cafefinder.app.service.CafeService;
-import com.cafefinder.app.service.UserDetailsImpl;
-import com.cafefinder.app.web.ReviewController;
+import java.lang.reflect.Field;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import org.mockito.Mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +25,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.lang.reflect.Field;
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import com.cafefinder.app.model.Review;
+import com.cafefinder.app.repo.ReviewRepo;
+import com.cafefinder.app.service.CafeService;
+import com.cafefinder.app.service.UserDetailsImpl;
+import com.cafefinder.app.web.ReviewController;
 
 /**
  * Test Case #4: LeaveReviewTest
