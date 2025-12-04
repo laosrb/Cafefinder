@@ -1,15 +1,30 @@
 package com.cafefinder.app;
 
-import com.cafefinder.app.model.Review;
-import com.cafefinder.app.repo.ReviewRepo;
-import com.cafefinder.app.service.UserDetailsImpl;
-import com.cafefinder.app.web.AdminController;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import static org.mockito.ArgumentMatchers.any;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +33,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.time.Instant;
-import java.util.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import com.cafefinder.app.model.Review;
+import com.cafefinder.app.repo.ReviewRepo;
+import com.cafefinder.app.service.UserDetailsImpl;
+import com.cafefinder.app.web.AdminController;
 
 /**
  * Test Case #3: AdminReviewApprovalTest
@@ -73,7 +86,6 @@ class AdminReviewApprovalTest {
     void testAdminCanViewPendingReviews() {
         // Given
         when(reviewRepo.findByStatus("PENDING")).thenReturn(pendingReviews);
-        when(authentication.getPrincipal()).thenReturn(adminUserDetails);
 
         // When
         ResponseEntity<List<Review>> response = adminController.getPendingReviews();
@@ -194,7 +206,6 @@ class AdminReviewApprovalTest {
     @DisplayName("Test Case 3.6: Regular user cannot access admin review dashboard")
     void testRegularUserCannotAccessAdminDashboard() {
         // Given
-        when(authentication.getPrincipal()).thenReturn(regularUserDetails);
         when(reviewRepo.findByStatus("PENDING")).thenReturn(pendingReviews);
 
         // When - Note: Security is temporarily disabled in AdminController, but we test the behavior
@@ -211,7 +222,6 @@ class AdminReviewApprovalTest {
     @DisplayName("Test Case 3.7: Logged out user cannot access admin review dashboard")
     void testLoggedOutUserCannotAccessAdminDashboard() {
         // Given
-        when(authentication.getPrincipal()).thenReturn(null);
         when(reviewRepo.findByStatus("PENDING")).thenReturn(pendingReviews);
 
         // When

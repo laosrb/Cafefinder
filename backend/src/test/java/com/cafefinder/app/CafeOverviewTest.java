@@ -1,5 +1,29 @@
 package com.cafefinder.app;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
+
 import com.cafefinder.app.model.Cafe;
 import com.cafefinder.app.model.MenuItem;
 import com.cafefinder.app.model.Review;
@@ -8,22 +32,6 @@ import com.cafefinder.app.repo.ReviewRepo;
 import com.cafefinder.app.service.CafeService;
 import com.cafefinder.app.web.CafeController;
 import com.cafefinder.app.web.ReviewController;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.ActiveProfiles;
-
-import java.util.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
 
 /**
  * Test Case #2: CafeOverviewTest
@@ -133,9 +141,7 @@ class CafeOverviewTest {
     void testViewCafeWithNoReviews() {
         // Given
         String cafeId = "cafe4";
-        Cafe cafe = createCompleteCafe(cafeId);
 
-        when(cafeRepo.findById(cafeId)).thenReturn(Optional.of(cafe));
         when(reviewRepo.findByCafeIdAndStatusOrderByCreatedAtDesc(cafeId, "APPROVED")).thenReturn(new ArrayList<>());
 
         // When

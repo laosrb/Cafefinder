@@ -1,38 +1,38 @@
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/security/AuthEntryPointJwt.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/service/CafeService.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/dto/ClaimRequestDto.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/AuthController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/dto/ClaimReviewDto.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/config/SeedDataHelper.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/dto/JwtResponse.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/CafeController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/dto/GooglePlacesResponse.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/ReviewController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/dto/LoginRequest.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/repo/UserRepo.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/model/User.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/config/ReviewMigration.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/HealthController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/service/UserDetailsImpl.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/util/JwtUtils.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/model/Review.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/model/Cafe.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/AdminController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/TestAdminController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/repo/ClaimRequestRepo.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/dto/RegisterRequest.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/security/AuthTokenFilter.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/model/ClaimRequest.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/BusyController.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/model/MenuItem.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/config/SecurityConfig.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/config/DatabaseMigration.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/repo/BusyRepo.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/service/GooglePlacesService.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/repo/CafeRepo.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/service/UserDetailsServiceImpl.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/Application.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/model/BusyEntry.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/repo/ReviewRepo.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/config/SeedData.java
-/Users/andrescuervo/Desktop/CafeFinderFinal/CafeFinder/backend/src/main/java/com/cafefinder/app/web/ClaimController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\config\ReviewMigration.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\dto\JwtResponse.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\security\AuthTokenFilter.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\service\UserDetailsServiceImpl.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\dto\LoginRequest.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\dto\ClaimReviewDto.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\model\Cafe.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\model\ClaimRequest.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\service\UserDetailsImpl.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\HealthController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\ReviewController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\config\SecurityConfig.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\AuthController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\BusyController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\util\JwtUtils.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\repo\CafeRepo.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\config\SeedDataHelper.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\dto\RegisterRequest.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\AdminController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\TestAdminController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\security\AuthEntryPointJwt.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\service\CafeService.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\ClaimController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\repo\ReviewRepo.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\Application.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\repo\BusyRepo.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\model\BusyEntry.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\model\User.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\dto\GooglePlacesResponse.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\model\MenuItem.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\model\Review.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\repo\UserRepo.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\service\GooglePlacesService.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\config\DatabaseMigration.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\repo\ClaimRequestRepo.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\web\CafeController.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\dto\ClaimRequestDto.java
+C:\Users\laosr\CODE\CODE PROJECTS\CafeFinder\backend\src\main\java\com\cafefinder\app\config\SeedData.java

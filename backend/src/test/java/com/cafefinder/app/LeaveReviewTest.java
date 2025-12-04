@@ -55,7 +55,6 @@ class LeaveReviewTest {
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         userDetails = new UserDetailsImpl("user-id", "testuser", "test@example.com", "password", authorities);
-        when(authentication.getPrincipal()).thenReturn(userDetails);
         
         // Inject CafeService into ReviewController using reflection
         reviewController = new ReviewController(reviewRepo);
@@ -73,6 +72,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -95,6 +95,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Excellent!");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -148,6 +149,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -169,6 +171,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Great coffee!");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -223,12 +226,13 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
         ResponseEntity<Review> response = reviewController.createReview(review, authentication);
 
-        // Then
+        // Then 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNull(response.getBody().getCoffeeRating());
         verify(reviewRepo, times(1)).save(any(Review.class));
@@ -244,6 +248,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -264,6 +269,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Amazing taste!");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -318,6 +324,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -338,6 +345,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -358,6 +366,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Beautiful ambiance!");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -412,6 +421,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -432,6 +442,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -452,6 +463,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Excellent service!");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -506,6 +518,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -525,6 +538,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText(null); // Null text
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -545,6 +559,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Good"); // Short text
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -565,6 +580,7 @@ class LeaveReviewTest {
         String longText = "A".repeat(5000); // Very long text
         review.setText(longText);
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -588,6 +604,7 @@ class LeaveReviewTest {
         review.setServiceRating(null);
         review.setText(null);
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -616,6 +633,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Perfect in every way!");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenReturn(review);
 
         // When
@@ -640,6 +658,7 @@ class LeaveReviewTest {
         review.setCafeId("cafe1");
         review.setText("Test review");
 
+        when(authentication.getPrincipal()).thenReturn(userDetails);
         when(reviewRepo.save(any(Review.class))).thenAnswer(invocation -> {
             Review saved = invocation.getArgument(0);
             saved.setId("review-id");
